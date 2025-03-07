@@ -5,7 +5,7 @@
             @foreach ($posts as $post)
 
                 {{-- Post completo con su imagen de fondo --}}
-                <article class="w-full h-80 bg-cover bg-center @if($loop->first) md:col-span-2 @endif" style="background-image: url(http://localhost/blog/{{Storage::url($post->image->url)}})">
+                <article class="w-full h-80 bg-cover bg-center @if($loop->first) md:col-span-2 @endif" style="background-image: url(http://localhost/plataforma-sicyt/{{Storage::url($post->image->url)}})">
                     <div class="w-full h-full px-8 flex flex-col justify-center">
 
                         {{-- Etiquetas con sus colores --}}

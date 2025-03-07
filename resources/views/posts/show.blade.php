@@ -11,7 +11,7 @@
             {{-- Contenido Principal --}}
             <div class="lg:col-span-2">
                 <figure>
-                    <img src="http://localhost/blog/{{Storage::url($post->image->url)}}" alt="" class="w-full h-80 object-cover object-center">
+                    <img src="http://localhost/plataforma-sicyt/{{Storage::url($post->image->url)}}" alt="" class="w-full h-80 object-cover object-center">
                 </figure>
 
                 <div class="text-base text-gray-500 mt-4">
@@ -27,7 +27,7 @@
                     @foreach ($similares as $similar)
                         <li class="mb-4">
                             <a href="{{ route('posts.show', $similar) }}" class="flex">
-                                <img class="w-36 h-20 object-cover object-center" src="http://localhost/blog/{{Storage::url($similar->image->url)}}" alt="">
+                                <img class="w-36 h-20 object-cover object-center" src="http://localhost/plataforma-sicyt/{{Storage::url($similar->image->url)}}" alt="">
                                 <span class="ml-2 text-gray-600">{{ $similar->name }}</span>
                             </a>
                         </li>

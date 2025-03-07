@@ -1,7 +1,7 @@
 @props(['post'])
 
 <article class="mb-8 bg-white shadow-lg rounded-lg overflow-hidden">
-    <img class="w-full h-72 object-cover object-center" src="http://localhost/blog/{{Storage::url($post->image->url)}}" alt="">
+    <img class="w-full h-72 object-cover object-center" src="http://localhost/plataforma-sicyt/{{Storage::url($post->image->url)}}" alt="">
 
     <div class="px-6 py-4">
         <h1 class="font-bold text-xl mb-2">

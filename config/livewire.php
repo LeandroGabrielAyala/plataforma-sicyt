@@ -88,7 +88,7 @@ return [
     |
     */
 
-    'render_on_redirect' => false,
+    'render_on_redirect' => true,
 
     /*
     |---------------------------------------------------------------------------
@@ -101,7 +101,7 @@ return [
     |
     */
 
-    'legacy_model_binding' => false,
+    'legacy_model_binding' => true,
 
     /*
     |---------------------------------------------------------------------------
@@ -157,4 +157,5 @@ return [
     */
 
     'pagination_theme' => 'tailwind',
+    'asset_url' => 'http://localhost/plataforma-sicyt/public'
 ];

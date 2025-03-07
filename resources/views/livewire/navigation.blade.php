@@ -26,7 +26,7 @@
             <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
 
                 {{-- Logotipo --}}
-                <a href="/blog/public" class="flex shrink-0 items-center">
+                <a href="/plataforma-sicyt/public" class="flex shrink-0 items-center">
                     <img class="h-8 w-auto" src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
                 </a>
 

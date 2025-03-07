@@ -27,7 +27,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified',]
 
 // Vista de Administrador
     // Dashboard
-Route::get('admin', [HomeController::class, 'index'])->name('admin.home');
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified',])->group(function () {
+    Route::get('admin', [HomeController::class, 'index'])->name('admin.home');
+});
 
     // Category CRUD
 Route::resource('admin/categories', CategoryController::class)->names('admin.categories');
