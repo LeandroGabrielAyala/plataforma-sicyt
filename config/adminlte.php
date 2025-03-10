@@ -402,7 +402,7 @@ return [
         [
             'text' => 'Adscriptos',
             'url' => '#',
-            'icon' => 'mr-1 fas fa-user-edit',
+            'icon' => 'fas fa-user-edit',
         ],
         [
             'text' => 'Personal SICyT',

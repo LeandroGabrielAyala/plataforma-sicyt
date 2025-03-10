@@ -8,7 +8,11 @@ use App\Models\Post;
 
 class PostsIndex extends Component
 {
-    public $search = "Probando texto";
+    public $search = "Probando el texto";
+
+    public function updatingSearch() {
+        $this->resetPage();
+    }
 
     public function render()
     {
