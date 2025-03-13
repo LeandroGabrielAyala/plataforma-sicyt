@@ -3,7 +3,7 @@
 <div class="card">
 
     <div class="card-header">
-        <a class="btn btn-success mb-2" href="{{ route('admin.posts.create') }}">Nueva noticia</a>
+        {{-- <a class="btn btn-success mb-2" href="{{ route('admin.posts.create') }}">Nueva noticia</a> --}}
 
         <input wire:model="search" class="form-control" placeholder="Buscar un post">
     </div>

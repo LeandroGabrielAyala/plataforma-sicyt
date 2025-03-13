@@ -9,8 +9,9 @@
 @section('content')
 	<div class="card">
 		<div class="card-body">
+
 			{{-- Formulario para crear Noticias --}}
-			<form action="{{ route('admin.posts.store') }}" method="POST">
+			<form action="{{ route('admin.posts.store') }}" method="POST" autocomplete="off">
 				@csrf
 
 				<div class="form-group">
@@ -27,6 +28,19 @@
 					<input id="slug" type="text" name="slug" class="form-control" placeholder="Ingrese el Slug de la noticia" readonly>
 
 					@error('slug')
+						<span class="text-danger">{{ $message }}</span>
+					@enderror
+				</div>
+
+				<div class="form-group">
+					<label for="category_id">Categoría:</label>
+					<select name="category" id="category_id" class="form-control">
+						@foreach ($categories as $category)
+							<option value={{ $category }}>{{ $category }}</option>
+						@endforeach
+					</select>
+				
+					@error('category')
 						<span class="text-danger">{{ $message }}</span>
 					@enderror
 				</div>
