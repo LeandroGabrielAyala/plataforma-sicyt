@@ -44,6 +44,31 @@
 						<span class="text-danger">{{ $message }}</span>
 					@enderror
 				</div>
+				
+				{{-- Etiquetas de la noticia --}}
+				<div class="form-group">
+					<label for="tag_id">Etiquetas:</label>
+					<select name="tag" id="tag_id" class="form-control">
+						@foreach ($tags as $tag)
+							<option value={{ $tag }}>{{ $tag }}</option>
+						@endforeach
+					</select>
+				
+					@error('tag')
+						<span class="text-danger">{{ $message }}</span>
+					@enderror
+				</div>
+				
+				{{-- Extracto de la noticia --}}
+				<div class="form-group">
+					<label for="extract">Extracto:</label>
+					<textarea class="form-control" name="extract" id="" cols="30" rows="6"></textarea>
+				</div>
+
+				<div class="form-group">
+					<label for="body">Cuerpo de la noticia:</label>
+					<textarea class="form-control" name="body" id="" cols="30" rows="10"></textarea>
+				</div>
 
 				<button type="submit" class="btn btn-primary">Crear noticia</button>
 			</form>
