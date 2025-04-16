@@ -63,27 +63,40 @@
 
                 {{-- Estado de la noticia --}}
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-                    <label class="form-check-label" for="flexRadioDefault1">
+                    <input class="form-check-input" type="radio" name="1" id="1">
+                    <label class="form-check-label" for="1">
                         Borrador
                     </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                    <label class="form-check-label" for="flexRadioDefault2">
+                    
+                    <input class="form-check-input" type="radio" name="2" id="2">
+                    <label class="form-check-label" for="2">
                         Publicado
                     </label>
+
+                    <hr>
+
+                    @error('status')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 {{-- Extracto de la noticia --}}
                 <div class="form-group">
                     <label for="extract">Extracto:</label>
                     <textarea class="form-control" name="extract" id="extract" cols="30" rows="6"></textarea>
+
+                    @error('extract')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="body">Cuerpo de la noticia:</label>
                     <textarea class="form-control" name="body" id="body" cols="30" rows="10"></textarea>
+
+                    @error('body')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <button type="submit" class="btn btn-primary">Crear noticia</button>
