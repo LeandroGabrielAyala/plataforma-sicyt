@@ -28,7 +28,7 @@ class PostController extends Controller
     public function create(Tag $tag)
     {
         $categories = Category::pluck('name', 'id');
-        $tags = Tag::pluck('name', 'id');
+        $tags = Tag::all();
 
         return view('admin.posts.create', compact('categories', 'tags'));
     }
@@ -38,7 +38,13 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        return 'Las validaciones pasaron con éxitos';
+        $post = Post::create($request->all());
+
+        if ($request->tags) {
+            $post->tags()->attach($request->tags);
+        }
+
+        return redirect()->route('admin.posts.edit', $post);
     }
 
     /**

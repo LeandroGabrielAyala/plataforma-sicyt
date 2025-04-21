@@ -14,6 +14,8 @@
             <form action="{{ route('admin.posts.store') }}" method="POST" autocomplete="off">
                 @csrf
 
+                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+
                 <div class="form-group">
                     <label>Nombre:</label>
                     <input id="name" type="text" name="name" class="form-control"
@@ -24,6 +26,7 @@
                     @enderror
                 </div>
 
+                {{-- Slug de la noticia --}}
                 <div class="form-group">
                     <label>Slug:</label>
                     <input id="slug" type="text" name="slug" class="form-control"
@@ -34,13 +37,17 @@
                     @enderror
                 </div>
 
+                {{-- Categoría de la noticia --}}
                 <div class="form-group">
-                    <label for="category_id">Categorías:</label>
-                    <select name="category" id="category_id" class="form-control">
-                        @foreach ($categories as $category)
-                            <option value={{ $category }}>{{ $category }}</option>
+                    <label for="category_id">Categoria</label>
+                    <select name="category_id" id="category_id" class="form-control">
+                        @foreach ($categories as $id => $name)
+                            <option value="{{ $id }}" {{ old('category_id') == $id ? 'selected' : '' }}>
+                                {{ $name }}
+                            </option>
                         @endforeach
                     </select>
+                    
 
                     @error('category')
                         <span class="text-danger">{{ $message }}</span>
@@ -49,12 +56,21 @@
 
                 {{-- Etiquetas de la noticia --}}
                 <div class="form-group">
-                    <label for="tag_id">Etiquetas:</label>
-                    <select name="tag" id="tag_id" class="form-control">
+                    <p>Etiquetas</p>
+                    
+                    @foreach ($tags as $tag)
+                        <label for="">
+                            <input type="checkbox" name="tags[]" value="{{ $tag->id }}">
+                            {{ $tag->name }}
+                        </label>                    
+                    @endforeach
+
+
+                    {{-- <select name="tag" id="tag_id" class="form-control">
                         @foreach ($tags as $tag)
                             <option value={{ $tag }}>{{ $tag }}</option>
                         @endforeach
-                    </select>
+                    </select> --}}
 
                     @error('tag')
                         <span class="text-danger">{{ $message }}</span>
@@ -63,12 +79,16 @@
 
                 {{-- Estado de la noticia --}}
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="1" id="1">
+                    <p class="font-weight-bold">Estado</p>
+                    
+                    <input class="form-check-input" type="radio" name="status" value="1" checked>
                     <label class="form-check-label" for="1">
                         Borrador
                     </label>
+
+                    <br>
                     
-                    <input class="form-check-input" type="radio" name="2" id="2">
+                    <input class="form-check-input" type="radio" name="status" value="2">
                     <label class="form-check-label" for="2">
                         Publicado
                     </label>

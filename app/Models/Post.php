@@ -14,7 +14,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'slug', 'extract', 'body'];
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 
     // Relación "UNO A MUCHOS INVERSA"
     public function user() {
